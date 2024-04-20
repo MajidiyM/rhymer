@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: primaryColor,
         colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
+        scaffoldBackgroundColor: Color(0xFFEFF1F3),
         useMaterial3: true,
       ),
       home: HomeScreen(),
@@ -34,13 +35,12 @@ class HomeScreen extends StatelessWidget {
             pinned: true,
             floating: true,
             snap: true,
-            backgroundColor: theme.cardColor,
             elevation: 0,
             surfaceTintColor: Colors.transparent,
             title: Text("Rhymer"),
             bottom: PreferredSize(
-              child: TextFormField(),
               preferredSize: Size.fromHeight(70),
+              child: SearchButton(),
             ),
           ),
         ],
@@ -52,3 +52,36 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+class SearchButton extends StatelessWidget {
+  const SearchButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 16).copyWith(bottom: 8),
+      padding: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: theme.hintColor.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.search_rounded),
+          SizedBox(width: 12,),
+          Text(
+            "Поиск...",
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+              color: theme.hintColor.withOpacity(0.4),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
