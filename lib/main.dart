@@ -43,6 +43,14 @@ class HomeScreen extends StatelessWidget {
               child: SearchButton(),
             ),
           ),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 16,
+            ),
+          ),
+          SliverList.builder(
+            itemBuilder: (context, index) => RhymeListCard(),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -70,7 +78,9 @@ class SearchButton extends StatelessWidget {
       child: Row(
         children: [
           Icon(Icons.search_rounded),
-          SizedBox(width: 12,),
+          SizedBox(
+            width: 12,
+          ),
           Text(
             "Поиск...",
             style: TextStyle(
@@ -79,6 +89,34 @@ class SearchButton extends StatelessWidget {
               color: theme.hintColor.withOpacity(0.4),
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class RhymeListCard extends StatelessWidget {
+  const RhymeListCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(horizontal: 16).copyWith(bottom: 10),
+      padding: const EdgeInsets.only(left: 12),
+      decoration: BoxDecoration(
+        color: theme.cardColor,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            "Rhyme",
+            style: theme.textTheme.bodyLarge,
+          ),
+          IconButton(onPressed: (){}, icon: Icon(Icons.favorite, color: theme.hintColor.withOpacity(0.2),),),
         ],
       ),
     );
