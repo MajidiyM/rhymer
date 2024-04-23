@@ -1,0 +1,1 @@
+ /Users/mirislommajidiy/Documents/Dev/flutter_project/rhymer/.dart_tool/flutter_build/2422a4f0e898d1a9d3ce72eb8684203f/native_assets.yaml: 
