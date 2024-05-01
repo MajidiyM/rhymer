@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:rhymer2/ui/ui.dart';
 
-import '../../search/search.dart';
 
 @RoutePage()
 class FavoriteScreen extends StatelessWidget {
