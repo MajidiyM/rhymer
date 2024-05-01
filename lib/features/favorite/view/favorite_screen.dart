@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:rhymer2/ui/ui.dart';
 
-
 @RoutePage()
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
@@ -25,7 +24,9 @@ class FavoriteScreen extends StatelessWidget {
           ),
         ),
         SliverList.builder(
-          itemBuilder: (context, index) => const RhymeListCard(),
+          itemBuilder: (context, index) => const RhymeListCard(
+            isfavorite: true,
+          ),
         ),
       ],
     );
