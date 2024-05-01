@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rhymer2/router/router.dart';
-import 'features/home/home.dart';
-
 
 void main() => runApp(const RhymerApp());
 
@@ -13,7 +11,6 @@ class RhymerApp extends StatefulWidget {
 }
 
 class _RhymerAppState extends State<RhymerApp> {
-
   final _router = AppRouter();
 
   @override
@@ -32,4 +29,3 @@ class _RhymerAppState extends State<RhymerApp> {
     );
   }
 }
-
