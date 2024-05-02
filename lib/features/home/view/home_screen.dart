@@ -2,8 +2,6 @@ import "package:auto_route/auto_route.dart";
 import "package:flutter/material.dart";
 import "package:rhymer2/router/router.dart";
 
-
-
 @RoutePage()
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,14 +15,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return AutoTabsRouter(
-        routes: const [
-          SearchRoute(),
-          FavoriteRoute(),
-          PoemsRoute(),
-          SettingsRoute(),
-        ],
+      routes: const [
+        SearchRoute(),
+        FavoriteRoute(),
+        HistoryRoute(),
+        SettingsRoute(),
+      ],
       builder: (context, child) {
-          final tabsRouter = AutoTabsRouter.of(context);
+        final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
           body: child,
           bottomNavigationBar: BottomNavigationBar(
@@ -42,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   label: "Favourite",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.menu),
+                  icon: Icon(Icons.history),
                   label: "History",
                 ),
                 BottomNavigationBarItem(
@@ -52,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ]),
         );
       },
-      );
+    );
   }
 
   void _openPage(int index, TabsRouter tabsRouter) {
@@ -61,7 +59,3 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 }
-
-
-
-

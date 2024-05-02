@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 
 import '../features/favorite/favorite.dart';
 import '../features/home/home.dart';
-import '../features/poems/poems.dart';
+import '../features/history/history.dart';
 import '../features/search/search.dart';
 import '../features/settings/settings.dart';
 part 'router.gr.dart';
@@ -24,8 +24,8 @@ class AppRouter extends _$AppRouter {
               path: "favotites",
             ),
             AutoRoute(
-              page: PoemsRoute.page,
-              path: "poems",
+              page: HistoryRoute.page,
+              path: "history",
             ),
             AutoRoute(
               page: SettingsRoute.page,
