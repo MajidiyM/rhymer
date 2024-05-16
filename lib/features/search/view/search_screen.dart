@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:rhymer2/features/search/widgets/widgets.dart';
 import 'package:rhymer2/ui/ui.dart';
 
-
 @RoutePage()
 class SearchScreen extends StatelessWidget {
   const SearchScreen({
@@ -54,13 +53,11 @@ class SearchScreen extends StatelessWidget {
           ),
         ),
         SliverList.builder(
-          itemBuilder: (context, index) => const RhymeListCard(),
+          itemBuilder: (context, index) => const RhymeListCard(
+            rhyme: 'Rhyme',
+          ),
         ),
       ],
     );
   }
 }
-
-
-
-
