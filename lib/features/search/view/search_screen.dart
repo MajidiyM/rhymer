@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:rhymer2/features/search/widgets/search_rhymes_bottom_sheet.dart';
 import 'package:rhymer2/features/search/widgets/widgets.dart';
 import 'package:rhymer2/ui/ui.dart';
 
@@ -11,18 +12,23 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return CustomScrollView(
       slivers: [
-        const SliverAppBar(
+        SliverAppBar(
           pinned: true,
           floating: true,
           snap: true,
           elevation: 0,
           surfaceTintColor: Colors.transparent,
-          title: Text("Rhymer"),
+          title: const Text("Rhymer"),
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(70),
-            child: SearchButton(),
+            preferredSize: const Size.fromHeight(70),
+            child: SearchButton(
+              onTap: () {
+                _showSearchBottomSheet(context, theme);
+              },
+            ),
           ),
         ),
         const SliverToBoxAdapter(
@@ -58,6 +64,18 @@ class SearchScreen extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  void _showSearchBottomSheet(BuildContext context, ThemeData theme) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (context) => const Padding(
+        padding: EdgeInsets.only(top: 120),
+        child: SearchRhymesBootomSheet(),
+      ),
     );
   }
 }
